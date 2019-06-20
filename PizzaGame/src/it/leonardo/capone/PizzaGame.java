@@ -18,7 +18,7 @@ public class PizzaGame {
         char nome = 'A';
         this.giocatori = new ArrayList<>();
         for(int i = 0; i < numeroGiocatori; i++) {
-            giocatori.add(new Giocatore(String.valueOf(nome)));
+            this.giocatori.add(new Giocatore(String.valueOf(nome)));
             nome += 1;
         }
         this.numeroPizze = (int)(10 + Math.random() * 100);
@@ -108,7 +108,7 @@ public class PizzaGame {
                 case PizzaGame.PROSSIMO_TURNO:
                     pizzaGame.setGiocatorePrecedente(pizzaGame.getGiocatori().get(i));
                     System.out.println("Sul tavolo ci sono " + pizzaGame.getNumeroPizze() + " pizze");
-                    i = (i + 1) % 2;
+                    i = (i + 1) % numeroGiocatori;
                     break;
                 case PizzaGame.PERSO:
                     System.out.println("Vince il Giocatore " + pizzaGame.getGiocatorePrecedente().getNome());
